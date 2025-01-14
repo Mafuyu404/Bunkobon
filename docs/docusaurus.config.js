@@ -53,6 +53,10 @@ const config = {
     ],
   ],
 
+  themes: [
+    // [require.resolve("@easyops-cn/docusaurus-search-local"), ({ hashed: true })]
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -70,11 +74,11 @@ const config = {
             label: '书架',
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
-          },
+          // {
+          //   href: 'https://github.com/facebook/docusaurus',
+          //   label: 'GitHub',
+          //   position: 'right',
+          // },
         ],
       },
       footer: {
