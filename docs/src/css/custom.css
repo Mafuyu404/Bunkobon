@@ -31,8 +31,13 @@
 
 p {
   white-space: pre-wrap;
+  line-height: 30px;
 }
 
 [class="theme-doc-footer-edit-meta-row row"] {
+  display: none;
+}
+
+readthedocs-flyout {
   display: none;
 }
