@@ -1,15 +1,16 @@
 const fs = require("fs");
+const path = require("path");
 
-const cache = fs.readdirSync("./cache");
+const cache = fs.readdirSync(p("/cache"));
 const pages = [];
 let route = "cache";
 
-if (!fs.existsSync(`./docs`)) fs.mkdirSync(`./docs`);
+if (!fs.existsSync(p(`/docs`))) fs.mkdirSync(p(`/docs`));
 
 for (let item of cache) {
-  if (fs.lstatSync(`./cache/${item}`).isDirectory()) {
-    if (!fs.existsSync(`./docs/${item}`)) fs.mkdirSync(`./docs/${item}`);
-    const dir = fs.readdirSync(`./cache/${item}`);
+  if (fs.lstatSync(p(`/cache/${item}`)).isDirectory()) {
+    if (!fs.existsSync(p(`/docs/${item}`))) fs.mkdirSync(p(`/docs/${item}`));
+    const dir = fs.readdirSync(p(`/cache/${item}`));
     dir.forEach(i => handle(`${item}/${i}`));
   }
   else handle(item);
@@ -25,9 +26,13 @@ for (let item of cache) {
 
 function handle(file) {
   console.log(file)
-  let page = fs.readFileSync(`./cache/${file}`, { encoding: "utf-8" });
+  let page = fs.readFileSync(p(`/cache/${file}`), { encoding: "utf-8" });
   if (file.includes(".md")) {
     page = page.replaceAll("\r\n", "\r\n\r\n");
   }
-  fs.writeFileSync(`./docs/${file}`, page);
+  fs.writeFileSync(p(`/docs/${file}`), page);
+}
+
+function p(_path) {
+  return path.resolve(__dirname + _path);
 }
