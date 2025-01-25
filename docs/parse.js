@@ -25,12 +25,10 @@ for (let item of cache) {
 // }
 
 function handle(file) {
-  console.log(file)
+  console.log("parse " + file);
   let page = fs.readFileSync(p(`/cache/${file}`), { encoding: "utf-8" });
   if (file.includes(".md")) {
-    console.log(page.includes("\n"));
-    console.log(page.includes("\r"));
-    page = page.replaceAll("\r\n", "\r\n\r\n");
+    page = page.replaceAll("\n", "\n\n");
   }
   fs.writeFileSync(p(`/docs/${file}`), page);
 }
