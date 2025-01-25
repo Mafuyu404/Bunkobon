@@ -30,6 +30,7 @@ function handle(file) {
   if (file.includes(".md")) {
     page = page.replaceAll("\r\n", "\r\n\r\n");
   }
+  console.log(page)
   fs.writeFileSync(p(`/docs/${file}`), page);
 }
 
