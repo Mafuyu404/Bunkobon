@@ -31,7 +31,8 @@
 
 p {
   white-space: pre-wrap;
-  line-height: 30px;
+  line-height: 28px;
+  margin-bottom: 12px !important;
 }
 
 [class="theme-doc-footer-edit-meta-row row"] {
