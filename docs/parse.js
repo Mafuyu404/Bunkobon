@@ -28,9 +28,10 @@ function handle(file) {
   console.log(file)
   let page = fs.readFileSync(p(`/cache/${file}`), { encoding: "utf-8" });
   if (file.includes(".md")) {
+    console.log(page.includes("\n"));
+    console.log(page.includes("\r"));
     page = page.replaceAll("\r\n", "\r\n\r\n");
   }
-  console.log(page)
   fs.writeFileSync(p(`/docs/${file}`), page);
 }
 
